@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_extension/controller/home_controller.dart';
 import 'package:flutter_extension/controller/localization_controller.dart';
-import 'package:flutter_extension/controller/theme_controller.dart';
+
 import 'package:flutter_extension/util/app_constants.dart';
 import 'package:flutter_extension/views/base/custom_button.dart';
 import 'package:flutter_extension/views/base/custom_image.dart';
@@ -30,12 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
             const Text('Home Screen'),
 
             // Theme Switcher
-            Switch(
-              value: Get.find<ThemeController>().darkTheme,
-              onChanged: (v) {
-                Get.find<ThemeController>().toggleTheme();
-              },
-            ),
+            
             const SizedBox(height: 20),
 
             // Language Dropdown
