@@ -1,61 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_extension/views/base/custom_curve_painter.dart';
+import 'package:flutter_extension/controller/onboarding_controller.dart';
+import 'package:flutter_extension/views/base/custom_onbording_design.dart';
+import 'package:get/get.dart';
 
-class OnboardingScreen extends StatelessWidget {
+class OnboardingScreen extends GetView<OnboardingController> {
   const OnboardingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView.builder(
-        itemCount: 3,
-        itemBuilder: (context, index) {
-          return Stack(
-            children: [
-
-             
-              Container(
-                color: const Color(0xFF1877B5),
-              ),
-
-              if (index == 0)
-                Positioned(
-                  top: 47,
-                  left: 0,
-                  right: 0,
-                  child: SizedBox(
-                    height: 544,
-                    child: CustomPaint(
-                      painter: BottomCurvePainter(),
-                    ),
-                  ),
-                ),
-
-             
-              if (index == 1)
-                Positioned(
-                  top: 47,
-                  left: 0,
-                  right: 0,
-                  child: SizedBox(
-                    height: 503,
-                    child: CustomPaint(
-                      painter: SecondCurvePainter(),
-                    ),
-                  ),
-                ),
-
-             
-              if (index == 2)
-                Positioned.fill(
-                  child: CustomPaint(
-                    painter: BottomCurvePainter(),
-                  ),
-                ),
-            ],
-          );
-        },
-      ),
+      backgroundColor: Colors.white,
+      body: Obx(() {
+        final int idx = controller.currentIndex.value;
+        final bool isLastPage = controller.isLastPage;
+        return PageView.builder(
+          controller: controller.pageController,
+          itemCount: OnboardingController.pages.length,
+          onPageChanged: controller.onPageChanged,
+          itemBuilder: (BuildContext context, int index) {
+            final OnboardingData page = OnboardingController.pages[index];
+            return CustomOnbordingDesign(
+              page: page,
+              currentIndex: idx,
+              pageCount: OnboardingController.pages.length,
+              buttonText: isLastPage ? 'GET STARTED' : 'Next',
+              onBack: controller.goBack,
+              onNext: controller.goNext,
+            );
+          },
+        );
+      }),
     );
   }
 }

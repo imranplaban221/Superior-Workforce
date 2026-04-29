@@ -1,22 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_extension/controller/home_controller.dart';
 import 'package:flutter_extension/controller/localization_controller.dart';
-
 import 'package:flutter_extension/util/app_constants.dart';
 import 'package:flutter_extension/views/base/custom_button.dart';
 import 'package:flutter_extension/views/base/custom_image.dart';
 import 'package:get/get.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends GetView<HomeController> {
   const HomeScreen({super.key});
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  final HomeController homeController = Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {
@@ -28,22 +19,15 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text('Home Screen'),
-
-            // Theme Switcher
-            
             const SizedBox(height: 20),
-
-            // Language Dropdown
             GetBuilder<LocalizationController>(
-              builder: (localizationController) {
-                int _index = 0;
-                List<DropdownMenuItem<int>> _languageList = [];
-                for (
-                  int index = 0;
-                  index < AppConstants.languages.length;
-                  index++
-                ) {
-                  _languageList.add(
+              builder: (LocalizationController localizationController) {
+                int selectedIndex = 0;
+                final List<DropdownMenuItem<int>> languageItems = [];
+                for (int index = 0;
+                    index < AppConstants.languages.length;
+                    index++) {
+                  languageItems.add(
                     DropdownMenuItem(
                       value: index,
                       child: Text(AppConstants.languages[index].languageName),
@@ -51,21 +35,24 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                   if (AppConstants.languages[index].languageCode ==
                       localizationController.locale.languageCode) {
-                    _index = index;
+                    selectedIndex = index;
                   }
                 }
                 return DropdownButton<int>(
-                  value: _index,
-                  items: _languageList,
+                  value: selectedIndex,
+                  items: languageItems,
                   dropdownColor: Theme.of(context).cardColor,
                   icon: const Icon(Icons.keyboard_arrow_down),
                   elevation: 0,
                   iconSize: 30,
                   underline: const SizedBox(),
                   onChanged: (int? index) {
+                    if (index == null) {
+                      return;
+                    }
                     localizationController.setLanguage(
                       Locale(
-                        AppConstants.languages[index!].languageCode,
+                        AppConstants.languages[index].languageCode,
                         AppConstants.languages[index].countryCode,
                       ),
                     );
@@ -74,7 +61,6 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
             const SizedBox(width: 20),
-            // Example of CustomImage usage
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: const CustomImage(
@@ -84,14 +70,10 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             const SizedBox(height: 20),
-            // Example of CustomButton usage
-           
-               CustomButton(
-                onTap: () {
-                },
-                text: "Click Me",
-              ),
-            
+            CustomButton(
+              onTap: () {},
+              text: "Click Me",
+            ),
           ],
         ),
       ),

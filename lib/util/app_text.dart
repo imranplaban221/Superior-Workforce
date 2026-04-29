@@ -14,7 +14,7 @@ class AppFonts {
   }) {
     return TextStyle(
       fontFamily: fontFamily,
-      fontSize: size.sp, // 📱 responsive
+      fontSize: size.sp, 
       fontWeight: weight,
       color: color,
       height: height,

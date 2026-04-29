@@ -1,6 +1,7 @@
 
 import 'dart:convert';
 import 'package:flutter/services.dart';
+import 'package:flutter_extension/controller/auth_controller.dart';
 import 'package:flutter_extension/controller/splash_controller.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -19,7 +20,12 @@ Future<Map<String, Map<String, String>>>  init() async {
   // Controller
  
   Get.lazyPut(() => LocalizationController(sharedPreferences: Get.find()));
-  Get.lazyPut(() => SplashController());
+  // Eager init: splash must run [onInit] (navigation timer). GetView only calls
+  // [Get.find] when `controller` is read — this screen's build never did, so
+  // lazyPut never instantiated and the app stayed on splash forever.
+  Get.put(SplashController());
+  Get.lazyPut(() => AuthController());
+  Get.lazyPut(() => HomeController());
 
 
 
