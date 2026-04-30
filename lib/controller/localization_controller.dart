@@ -1,6 +1,3 @@
-import 'dart:convert';
-
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -72,11 +69,11 @@ class LocalizationController extends GetxController implements GetxService {
     } else {
       _selectedIndex = -1;
       _languages = [];
-      AppConstants.languages.forEach((language) async {
+      for (final LanguageModel language in AppConstants.languages) {
         if (language.languageName.toLowerCase().contains(query.toLowerCase())) {
           _languages.add(language);
         }
-      });
+      }
     }
     update();
   }

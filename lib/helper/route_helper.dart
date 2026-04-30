@@ -1,5 +1,8 @@
+import 'package:flutter_extension/controller/add_education_controller.dart';
+import 'package:flutter_extension/controller/educational_background_controller.dart';
 import 'package:flutter_extension/controller/onboarding_controller.dart';
 import 'package:flutter_extension/controller/otp_controller.dart';
+import 'package:flutter_extension/controller/professional_details_controller.dart';
 import 'package:flutter_extension/controller/role_controller.dart';
 import 'package:flutter_extension/views/screen/common/role_screen.dart';
 import 'package:flutter_extension/views/screen/common/auth/complete_sign_up.dart';
@@ -10,7 +13,10 @@ import 'package:flutter_extension/views/screen/common/auth/new_password.dart';
 import 'package:flutter_extension/views/screen/common/auth/otp_screen.dart';
 import 'package:flutter_extension/views/screen/common/auth/sign_up_screen.dart';
 import 'package:flutter_extension/views/screen/home/home_screen.dart';
+import 'package:flutter_extension/views/screen/job_seeker/profile/add_education_screen.dart';
+import 'package:flutter_extension/views/screen/job_seeker/profile/educational_background.dart';
 import 'package:flutter_extension/views/screen/job_seeker/profile/personal_info_screen.dart';
+import 'package:flutter_extension/views/screen/job_seeker/profile/professional_details.dart';
 import 'package:flutter_extension/views/screen/onbording/onbording.dart';
 import 'package:get/get.dart';
 
@@ -30,6 +36,9 @@ class AppRoutes{
   static String confirmationScreen="/confirmation_screen";
   static String completeSignUpScreen="/complete_sign_up_screen";
   static String personalInfoScreen="/personal_info_screen";
+  static String educationalBackgroundScreen="/educational_background_screen";
+  static String addEducationScreen="/add_education_screen";
+  static String professionalDetailsScreen="/professional_details_screen";
 
   static String getOtpScreen() => otpScreen;
 
@@ -65,6 +74,27 @@ class AppRoutes{
      GetPage(name:confirmationScreen, page: ()=>const ConfirmationScreen()),
      GetPage(name:completeSignUpScreen, page: ()=>const CompleteSignUpScreen()),
      GetPage(name:personalInfoScreen, page: ()=>const PersonalInfoScreen()),
+     GetPage(
+       name: educationalBackgroundScreen,
+       page: () => const EducationalBackground(),
+       binding: BindingsBuilder(() {
+         Get.lazyPut(() => EducationalBackgroundController());
+       }),
+     ),
+     GetPage(
+       name: addEducationScreen,
+       page: () => const AddEducationScreen(),
+       binding: BindingsBuilder(() {
+         Get.lazyPut(() => AddEducationController());
+       }),
+     ),
+     GetPage(
+       name: professionalDetailsScreen,
+       page: () => const ProfessionalDetails(),
+       binding: BindingsBuilder(() {
+         Get.lazyPut(() => ProfessionalDetailsController());
+       }),
+     ),
   
 
   ];

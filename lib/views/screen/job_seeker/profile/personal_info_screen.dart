@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_extension/controller/auth_controller.dart';
+import 'package:flutter_extension/helper/route_helper.dart';
 import 'package:flutter_extension/util/app_colors.dart';
 import 'package:flutter_extension/util/app_text.dart';
 import 'package:flutter_extension/views/base/custom_button.dart';
@@ -51,7 +52,7 @@ class PersonalInfoScreen extends GetView<AuthController> {
                     style: AppFonts.custom(
                       size: 14,
                       weight: FontWeight.w500,
-                      color: const Color(0xFF6B7280),
+                      color: Colors.black87,
                     ),
                   ),
                   const Spacer(),
@@ -60,7 +61,7 @@ class PersonalInfoScreen extends GetView<AuthController> {
                     style: AppFonts.custom(
                       size: 14,
                       weight: FontWeight.w600,
-                      color: const Color(0xFF6B7280),
+                      color: Colors.black87,
                     ),
                   ),
                 ],
@@ -237,7 +238,7 @@ class PersonalInfoScreen extends GetView<AuthController> {
               SizedBox(height: 20.h),
               CustomButton(
                 text: 'Next',
-                onTap: () {},
+                onTap: () => Get.toNamed(AppRoutes.professionalDetailsScreen),
                 margin: EdgeInsets.only(bottom: 22.h),
               ),
             ],

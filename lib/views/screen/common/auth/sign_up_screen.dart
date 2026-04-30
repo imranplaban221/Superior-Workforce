@@ -4,7 +4,7 @@ import 'package:flutter_extension/helper/route_helper.dart';
 import 'package:flutter_extension/util/app_text.dart';
 import 'package:flutter_extension/util/otp_source.dart';
 import 'package:flutter_extension/views/base/custom_button.dart';
-import 'package:flutter_extension/views/base/custom_image_picker.dart';
+// import 'package:flutter_extension/views/base/custom_image_picker.dart';
 import 'package:flutter_extension/views/base/custom_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -82,12 +82,12 @@ class SignUpScreen extends GetView<AuthController> {
                         fit: BoxFit.contain,
                       ),
                       const Spacer(),
-                      Obx(
-                        () => CustomImagePicker(
-                          imageBytes: controller.signUpProfileImageBytes.value,
-                          onTap: controller.pickSignUpProfileImage,
-                        ),
-                      ),
+                      // Obx(
+                      //   () => CustomImagePicker(
+                      //     imageBytes: controller.signUpProfileImageBytes.value,
+                      //     onTap: controller.pickSignUpProfileImage,
+                      //   ),
+                      // ),
                     ],
                   ),
                   SizedBox(height: 20.h),
