@@ -41,10 +41,10 @@ class ForgetPasswordScreen extends GetView<AuthController> {
                 onPressed: Get.back,
                 padding: EdgeInsets.zero,
                 alignment: Alignment.centerLeft,
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back_rounded,
                   size: 32,
-                  color: const Color(0xFF3D4A57),
+                  color: Color(0xFF3D4A57),
                 ),
               ),
               SizedBox(height: 12.h),

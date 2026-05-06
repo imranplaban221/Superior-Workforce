@@ -44,7 +44,7 @@ class AppFonts {
   }
 
   static TextStyle small({
-    Color color = Colors.grey,
+    Color color = Colors.grey, required FontWeight weight,
   }) {
     return custom(
       size: 12,

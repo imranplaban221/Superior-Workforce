@@ -31,11 +31,11 @@ class CustomRoleCard extends StatelessWidget {
     final Color cardColor = isSelected
         ? const Color(0xFFF2FCF6)
         : Colors.white;
-    final Color titleColor = const Color(0xFF4B5563);
+    const Color titleColor = Color(0xFF4B5563);
     final Color subtitleColor = isSelected
         ? const Color(0xFF6B7280)
         : (unselectedSubtitleColor ?? const Color(0xFF0074BE));
-    final Color descriptionColor = const Color(0xFF6B7280);
+    const Color descriptionColor = Color(0xFF6B7280);
 
     return GestureDetector(
       onTap: onTap,

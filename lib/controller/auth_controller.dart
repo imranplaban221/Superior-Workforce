@@ -4,20 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
-/// Central place for auth + onboarding form state. Use getters when calling APIs.
+
 class AuthController extends GetxController {
   static AuthController get to => Get.find<AuthController>();
 
   final ImagePicker _picker = ImagePicker();
 
-  // --- Log in ---
+
   final TextEditingController loginEmailController = TextEditingController();
   final TextEditingController loginPasswordController = TextEditingController();
   final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
   final RxInt loginSelectedTab = 0.obs;
   final RxBool loginSubmitted = false.obs;
 
-  // --- Sign up ---
+  
   final TextEditingController signUpEmailController = TextEditingController();
   final TextEditingController signUpPasswordController = TextEditingController();
   final TextEditingController signUpConfirmPasswordController =
@@ -27,26 +27,26 @@ class AuthController extends GetxController {
   final RxBool signUpSubmitted = false.obs;
   final RxInt signUpUiTick = 0.obs;
 
-  // --- Forgot password ---
+  
   final TextEditingController forgotPasswordEmailController =
       TextEditingController();
   final GlobalKey<FormState> forgotPasswordFormKey = GlobalKey<FormState>();
 
-  // --- OTP (6 digits) ---
+  
   late final List<TextEditingController> otpDigitControllers;
   late final List<FocusNode> otpFocusNodes;
 
-  // --- New / reset password ---
+  
   final TextEditingController newPasswordController = TextEditingController();
   final TextEditingController newPasswordConfirmController =
       TextEditingController();
   final RxBool newPasswordObscure = true.obs;
   final RxBool newPasswordConfirmObscure = true.obs;
   final RxBool newPasswordSubmitted = false.obs;
-  /// Bumped from password fields so strength UI can use [Obx].
+  
   final RxInt newPasswordUiTick = 0.obs;
 
-  // --- Personal info (job seeker profile) ---
+ 
   final TextEditingController personalInfoFirstNameController =
       TextEditingController();
   final TextEditingController personalInfoLastNameController =
@@ -57,7 +57,7 @@ class AuthController extends GetxController {
       TextEditingController();
   final Rxn<Uint8List> personalInfoProfileImageBytes = Rxn<Uint8List>();
 
-  /// Set before navigating to [OtpScreen] if you want a single place to read it for APIs.
+  
   final Rxn<String> pendingOtpEmail = Rxn<String>();
 
   @override
@@ -93,7 +93,7 @@ class AuthController extends GetxController {
     super.onClose();
   }
 
-  // --- Image pickers ---
+
 
   Future<void> pickSignUpProfileImage() async {
     final Uint8List? bytes = await _pickImageBytes();
@@ -130,7 +130,7 @@ class AuthController extends GetxController {
     personalInfoProfileImageBytes.value = null;
   }
 
-  // --- Clear helpers (after navigation / success) ---
+  
 
   void clearLoginForm() {
     loginEmailController.clear();
@@ -191,7 +191,7 @@ class AuthController extends GetxController {
     clearPersonalInfoProfileImage();
   }
 
-  /// Full reset (e.g. after logout or abandoning onboarding).
+
   void resetAllAuthInputs() {
     clearLoginForm();
     clearSignUpForm();
@@ -202,7 +202,7 @@ class AuthController extends GetxController {
     pendingOtpEmail.value = null;
   }
 
-  // --- Values for API / repository layer ---
+
 
   String get loginEmail => loginEmailController.text.trim();
   String get loginPassword => loginPasswordController.text;

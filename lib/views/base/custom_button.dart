@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_extension/util/app_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -176,6 +177,88 @@ class _AuthOptionButton extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+
+class SummaryActionButtons extends StatelessWidget {
+  const SummaryActionButtons({
+    super.key,
+    required this.primaryText,
+    required this.secondaryText,
+    required this.onPrimaryTap,
+    required this.onSecondaryTap,
+  });
+
+  final String primaryText;
+  final String secondaryText;
+  final VoidCallback onPrimaryTap;
+  final VoidCallback onSecondaryTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+
+        
+        Expanded(
+          child: SizedBox(
+            height: 44.h,
+            child: OutlinedButton(
+              onPressed: onSecondaryTap,
+              style: OutlinedButton.styleFrom(
+                side: const BorderSide(
+                  color: Color(0xFF80B7DD),
+                  width: 1,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.r),
+                ),
+                backgroundColor: const Color(0xFFF3F8FC),
+              ),
+              child: Text(
+                secondaryText,
+                style: AppFonts.custom(
+                  size: 14,
+                  weight: FontWeight.w600,
+                  color: const Color(0xFF0074BE),
+                ),
+              ),
+            ),
+          ),
+        ),
+
+        SizedBox(width: 12.w),
+
+        
+        Expanded(
+          child: Material(
+            color: Colors.transparent,
+            child: InkWell(
+              onTap: onPrimaryTap,
+              borderRadius: BorderRadius.circular(10.r),
+              child: Ink(
+                height: 44.h,
+                decoration: BoxDecoration(
+                  gradient: AppColors.buttonColor,
+                  borderRadius: BorderRadius.circular(10.r),
+                ),
+                child: Center(
+                  child: Text(
+                    primaryText,
+                    style: AppFonts.custom(
+                      size: 14,
+                      weight: FontWeight.w600,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

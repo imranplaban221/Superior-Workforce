@@ -6,10 +6,14 @@ import 'package:flutter_extension/util/app_text.dart';
 import 'package:flutter_extension/views/base/custom_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_extension/controller/profile_progress_controller.dart';
+import 'package:flutter_extension/views/base/profile_progress_bar.dart';
 import 'package:get/get.dart';
 
 class PersonalInfoScreen extends GetView<AuthController> {
-  const PersonalInfoScreen({super.key});
+  PersonalInfoScreen({super.key});
+
+  final profileProgressController = Get.put(ProfileProgressController());
 
   @override
   Widget build(BuildContext context) {
@@ -45,48 +49,7 @@ class PersonalInfoScreen extends GetView<AuthController> {
                 ],
               ),
               SizedBox(height: 14.h),
-              Row(
-                children: <Widget>[
-                  Text(
-                    'Step 1 of 5',
-                    style: AppFonts.custom(
-                      size: 14,
-                      weight: FontWeight.w500,
-                      color: Colors.black87,
-                    ),
-                  ),
-                  const Spacer(),
-                  Text(
-                    '25%',
-                    style: AppFonts.custom(
-                      size: 14,
-                      weight: FontWeight.w600,
-                      color: Colors.black87,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 8.h),
-              Container(
-                width: double.infinity,
-                height: 6.h,
-                decoration: BoxDecoration(
-                  color: const Color(0xFFD9DDE3),
-                  borderRadius: BorderRadius.circular(999.r),
-                ),
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: FractionallySizedBox(
-                    widthFactor: 0.25,
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        gradient: AppColors.buttonColor,
-                        borderRadius: BorderRadius.circular(999.r),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              const ProfileProgressBar(step: 1),
               SizedBox(height: 18.h),
               Expanded(
                 child: Container(
@@ -159,7 +122,7 @@ class PersonalInfoScreen extends GetView<AuthController> {
                                   child: Container(
                                     width: 30.w,
                                     height: 30.w,
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                       gradient: AppColors.buttonColor,
                                       shape: BoxShape.circle,
                                     ),

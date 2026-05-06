@@ -104,6 +104,10 @@ class OtpController extends GetxController {
       Get.toNamed(AppRoutes.confirmationScreen);
       return;
     }
+     if (source == OtpSource.login) {
+    Get.offAllNamed(AppRoutes.homeScreen); 
+    return;
+  }
     Get.toNamed(AppRoutes.newPasswordScreen);
   }
 }

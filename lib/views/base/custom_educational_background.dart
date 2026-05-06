@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_extension/controller/educational_background_controller.dart';
+import 'package:flutter_extension/helper/route_helper.dart';
 import 'package:flutter_extension/util/app_colors.dart';
 import 'package:flutter_extension/util/app_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import 'package:flutter_extension/views/base/profile_progress_bar.dart';
 import 'package:get/get.dart';
 
 class CustomEducationalBackground extends StatelessWidget {
@@ -11,7 +14,6 @@ class CustomEducationalBackground extends StatelessWidget {
 
   final EducationalBackgroundController controller;
 
-  static const Color _progressLabelBlue = Color(0xFF0074BE);
 
   @override
   Widget build(BuildContext context) {
@@ -101,48 +103,7 @@ class CustomEducationalBackground extends StatelessWidget {
           ],
         ),
         SizedBox(height: 14.h),
-        Row(
-          children: <Widget>[
-            Text(
-              'Step 3 of 5',
-              style: AppFonts.custom(
-                size: 14,
-                weight: FontWeight.w500,
-                color: _progressLabelBlue,
-              ),
-            ),
-            const Spacer(),
-            Text(
-              '50%',
-              style: AppFonts.custom(
-                size: 14,
-                weight: FontWeight.w600,
-                color: _progressLabelBlue,
-              ),
-            ),
-          ],
-        ),
-        SizedBox(height: 8.h),
-        Container(
-          width: double.infinity,
-          height: 6.h,
-          decoration: BoxDecoration(
-            color: const Color(0xFFD9DDE3),
-            borderRadius: BorderRadius.circular(999.r),
-          ),
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: FractionallySizedBox(
-              widthFactor: 0.50,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  gradient: AppColors.buttonColor,
-                  borderRadius: BorderRadius.circular(999.r),
-                ),
-              ),
-            ),
-          ),
-        ),
+        const ProfileProgressBar(step: 3),
       ],
     );
   }
@@ -369,7 +330,9 @@ class CustomEducationalBackground extends StatelessWidget {
           child: Material(
             color: Colors.transparent,
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                 Get.toNamed(AppRoutes.uploadDocumentsScreen);
+              },
               borderRadius: BorderRadius.circular(10.r),
               child: Ink(
                 height: 44.h,

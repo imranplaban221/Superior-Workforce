@@ -5,6 +5,8 @@ import 'package:flutter_extension/util/app_colors.dart';
 import 'package:flutter_extension/util/app_text.dart';
 import 'package:flutter_extension/views/base/custom_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'package:flutter_extension/views/base/profile_progress_bar.dart';
 import 'package:get/get.dart';
 
 class ProfessionalDetails extends GetView<ProfessionalDetailsController> {
@@ -344,48 +346,7 @@ class ProfessionalDetails extends GetView<ProfessionalDetailsController> {
                 ],
               ),
               SizedBox(height: 14.h),
-              Row(
-                children: <Widget>[
-                  Text(
-                    'Step 2 of 5',
-                    style: AppFonts.custom(
-                      size: 14,
-                      weight: FontWeight.w500,
-                      color: Colors.black87,
-                    ),
-                  ),
-                  const Spacer(),
-                  Text(
-                    '50%',
-                    style: AppFonts.custom(
-                      size: 14,
-                      weight: FontWeight.w600,
-                      color: Colors.black87,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 8.h),
-              Container(
-                width: double.infinity,
-                height: 6.h,
-                decoration: BoxDecoration(
-                  color: const Color(0xFFD9DDE3),
-                  borderRadius: BorderRadius.circular(999.r),
-                ),
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: FractionallySizedBox(
-                    widthFactor: 0.50,
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        gradient: AppColors.buttonColor,
-                        borderRadius: BorderRadius.circular(999.r),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              const ProfileProgressBar(step: 2),
               SizedBox(height: 18.h),
               Container(
                 width: double.infinity,

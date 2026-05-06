@@ -6,6 +6,7 @@ import 'package:flutter_extension/views/base/custom_button.dart';
 import 'package:flutter_extension/views/base/custom_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_extension/util/otp_source.dart';
 import 'package:get/get.dart';
 
 class LogInScreen extends GetView<AuthController> {
@@ -13,6 +14,7 @@ class LogInScreen extends GetView<AuthController> {
 
   @override
   Widget build(BuildContext context) {
+    final AuthController controller = Get.put(AuthController());
     return Scaffold(
       backgroundColor: const Color(0xFFEDEFF2),
       body: SafeArea(
@@ -159,10 +161,22 @@ class LogInScreen extends GetView<AuthController> {
               CustomButton(
                 text: 'Log In',
                 height: 48.h,
-                onTap: () {
-                  controller.loginSubmitted.value = true;
-                  controller.loginFormKey.currentState?.validate();
-                },
+               onTap: () {
+  controller.loginSubmitted.value = true;
+
+  final isValid = controller.loginFormKey.currentState?.validate() ?? false;
+
+  if (!isValid) return;
+
+  
+  Get.toNamed(
+    AppRoutes.otpScreen,
+    arguments: {
+      'email': controller.loginEmail,
+      'source': OtpSource.login, 
+    },
+  );
+},
               ),
               SizedBox(height: 16.h),
               Row(

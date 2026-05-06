@@ -13,10 +13,15 @@ import 'package:flutter_extension/views/screen/common/auth/new_password.dart';
 import 'package:flutter_extension/views/screen/common/auth/otp_screen.dart';
 import 'package:flutter_extension/views/screen/common/auth/sign_up_screen.dart';
 import 'package:flutter_extension/views/screen/home/home_screen.dart';
+import 'package:flutter_extension/views/screen/home/job_details.dart';
+import 'package:flutter_extension/views/screen/home/notification_screen.dart';
+import 'package:flutter_extension/views/screen/job_seeker/profile/background_check.dart';
+import 'package:flutter_extension/views/screen/job_seeker/profile/upload_documents.dart';
 import 'package:flutter_extension/views/screen/job_seeker/profile/add_education_screen.dart';
 import 'package:flutter_extension/views/screen/job_seeker/profile/educational_background.dart';
 import 'package:flutter_extension/views/screen/job_seeker/profile/personal_info_screen.dart';
 import 'package:flutter_extension/views/screen/job_seeker/profile/professional_details.dart';
+import 'package:flutter_extension/views/screen/job_seeker/profile/profile_summery.dart';
 import 'package:flutter_extension/views/screen/onbording/onbording.dart';
 import 'package:get/get.dart';
 
@@ -39,6 +44,12 @@ class AppRoutes{
   static String educationalBackgroundScreen="/educational_background_screen";
   static String addEducationScreen="/add_education_screen";
   static String professionalDetailsScreen="/professional_details_screen";
+  static String uploadDocumentsScreen = "/upload_documents_screen";
+  static String backgroundCheckScreen = "/background_check";
+  static String profileSummeryScreen = "/profile_summery";
+  static String notificationScreen = "/notification_screen";
+   static String jobDetails = "/job_details";
+
 
   static String getOtpScreen() => otpScreen;
 
@@ -52,7 +63,7 @@ class AppRoutes{
       }),
     ),
 
-     GetPage(name:homeScreen, page: ()=>const HomeScreen()),
+     GetPage(name:homeScreen, page: ()=> HomeScreen()),
      GetPage(
        name: roleScreen,
        page: () => const RoleScreen(),
@@ -73,7 +84,7 @@ class AppRoutes{
      GetPage(name:newPasswordScreen, page: ()=>const NewPasswordScreen()),
      GetPage(name:confirmationScreen, page: ()=>const ConfirmationScreen()),
      GetPage(name:completeSignUpScreen, page: ()=>const CompleteSignUpScreen()),
-     GetPage(name:personalInfoScreen, page: ()=>const PersonalInfoScreen()),
+     GetPage(name:personalInfoScreen, page: ()=>PersonalInfoScreen()),
      GetPage(
        name: educationalBackgroundScreen,
        page: () => const EducationalBackground(),
@@ -95,6 +106,13 @@ class AppRoutes{
          Get.lazyPut(() => ProfessionalDetailsController());
        }),
      ),
+     GetPage(name: uploadDocumentsScreen, page: () => const UploadDocumentsScreen()),
+
+     GetPage(name: backgroundCheckScreen, page: () => const BackgroundCheckScreen()),
+     GetPage(name: profileSummeryScreen, page: () => const ProfileSummery()),
+      GetPage(name: homeScreen, page: () =>  HomeScreen()),
+      GetPage(name: notificationScreen, page: () =>  NotificationScreen()),
+       GetPage(name: jobDetails, page: () =>  JobDetails()),
   
 
   ];
