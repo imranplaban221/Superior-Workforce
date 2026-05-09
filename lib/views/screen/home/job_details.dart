@@ -1,13 +1,117 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_extension/helper/route_helper.dart';
 import 'package:flutter_extension/util/app_colors.dart';
 import 'package:flutter_extension/views/base/custom_review_card.dart';
 import 'package:flutter_extension/util/app_text.dart';
+import 'package:flutter_extension/views/screen/home/home_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class JobDetails extends StatelessWidget {
   const JobDetails({super.key});
+  void showCancelDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    barrierColor: Colors.black.withOpacity(0.5), 
+    barrierDismissible: false,
+    builder: (context) {
+      return Dialog(
+        backgroundColor: Colors.transparent,
+        child: Container(
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                "Are you sure cancel\nthis job?",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xFF374151),
+                  fontFamily: 'Inter',
+                ),
+              ),
+
+              const SizedBox(height: 12),
+
+              Text(
+                "This job is scheduled to start in less than 3 hours. If you cancel this shift, 35 points will be deducted from your account.",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 14.sp,
+                  color: Colors.grey,
+                  height: 1.4,
+                  
+                  fontFamily: 'Inter',
+                ),
+              ),
+
+              const SizedBox(height: 20),
+
+              Row(
+                children: [
+                  Expanded(
+                    child: OutlinedButton(
+                      style: OutlinedButton.styleFrom(
+                        side: const BorderSide(color: Color(0xFF0074BE)),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      onPressed: () {
+                        Get.offAll(() => const HomeScreen());
+                        
+                        // Get.toNamed(AppRoutes.homeScreen);
+                      },
+                      child: const Text(
+                        "YES",
+                        style: TextStyle(color: Color(0xFF0074BE)),
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(width: 10),
+
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(
+                          colors: [
+                            Color(0xFF004A8F),
+                            Color(0xFF008290),
+                          ],
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.transparent,
+                          shadowColor: Colors.transparent,
+                        ),
+                        onPressed: () {
+                         
+                          Get.back();
+                        },
+                        child: const Text("NO",
+                        style: TextStyle(color: Colors.white),),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      );
+    },
+  );
+}
 
   @override
   Widget build(BuildContext context) {
@@ -309,69 +413,79 @@ Container(
       ),
     ],
   ),
-  child: Row(
-    crossAxisAlignment: CrossAxisAlignment.start,
+  child: Column(
     children: [
-
-     
-      Container(
-        padding: const EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          color: const Color(0xFFE6EDF3),
-          shape: BoxShape.rectangle,
-          borderRadius: BorderRadius.circular(14),
-        ),
-        child:  SvgPicture.asset(
-          'assets/images/tips.svg',
-          color: Colors.black,
-          height: 20,
-          width: 20,
-        ),
-      ),
-
-      const SizedBox(width: 12),
-
+      Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
       
-      Expanded(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-
-            
-            Text(
-              "Tips",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-                color: Color(0xFF374151),
-              ),
+         
+          Container(
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: const Color(0xFFE6EDF3),
+              shape: BoxShape.rectangle,
+              borderRadius: BorderRadius.circular(14),
             ),
-
-            const SizedBox(height: 6),
-
-            
-            Text(
-              "Focus on cleanliness and sanitation. Use proper cleaning supplies and follow facility-specific hygiene protocols.",
-              style: TextStyle(
-                fontSize: 14,
-                color: Colors.black,
-                height: 1.4,
-              ),
+            child:  SvgPicture.asset(
+              'assets/images/tips.svg',
+              color: Colors.black,
+              height: 20,
+              width: 20,
             ),
-
-            const SizedBox(height: 10),
-
-
-            
-
-          ],
-        ),
-
-      ),
-
+          ),
       
+          const SizedBox(width: 12),
+      
+          
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+      
+                
+                Text(
+                  "Tips",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                    color: Color(0xFF374151),
+                    fontFamily: 'Inter',
+                  ),
+                ),
+      
+                
+      
+      
+                
+      
+              ],
+              
+            ),
+      
+          ),
+      
+          
+        ],
+      ),
+      const SizedBox(height: 10),
+
+    
+    Text(
+      "Focus on cleanliness and sanitation. Use proper cleaning supplies and follow facility-specific hygiene protocols.",
+      style: AppFonts.body(
+       
+       
+        color: Colors.black,
+        
+      ),
+    ),
     ],
+
+    
   ),
+
+  
 ),
 
 SizedBox(height: 16.h),
@@ -509,8 +623,9 @@ Row(
     Expanded(
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
-          padding: const EdgeInsets.symmetric(vertical: 12),
-          side: const BorderSide(
+          fixedSize: Size(95, 48) ,
+          padding:  EdgeInsets.symmetric(vertical: 12),
+          side:  BorderSide(
             color: Color(0xFF0074BE),
             width: 1,
           ),
@@ -519,6 +634,7 @@ Row(
           ),
         ),
         onPressed: () {
+          showCancelDialog(context);
           
         },
         child: const Text(
@@ -536,8 +652,9 @@ Row(
     Expanded(
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
-          padding: const EdgeInsets.symmetric(vertical: 12),
-          side: const BorderSide(
+          fixedSize: Size(162, 48) ,
+          padding:  EdgeInsets.symmetric(vertical: 12),
+          side:  BorderSide(
             color: Color(0xFF0074BE),
             width: 1,
           ),
@@ -546,9 +663,9 @@ Row(
           ),
         ),
         onPressed: () {
-          // message action
+          
         },
-        child: const Text(
+        child:  Text(
           "Message Now",
           style: TextStyle(
             color: Color(0xFF0074BE),
@@ -560,9 +677,11 @@ Row(
 
     const SizedBox(width: 10),
 
-    /// 🔹 NAVIGATE (GRADIENT BUTTON)
+  
     Expanded(
       child: Container(
+        height: 48 ,
+        width:109 ,
         decoration: BoxDecoration(
           gradient: const LinearGradient(
             colors: [
@@ -582,7 +701,7 @@ Row(
             ),
           ),
           onPressed: () {
-            // navigate action
+            
           },
           child: const Text(
             "Navigate",

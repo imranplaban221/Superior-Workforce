@@ -12,9 +12,21 @@ import 'package:flutter_extension/views/screen/common/auth/log_in_screen.dart';
 import 'package:flutter_extension/views/screen/common/auth/new_password.dart';
 import 'package:flutter_extension/views/screen/common/auth/otp_screen.dart';
 import 'package:flutter_extension/views/screen/common/auth/sign_up_screen.dart';
+import 'package:flutter_extension/views/screen/home/chat_screen.dart';
 import 'package:flutter_extension/views/screen/home/home_screen.dart';
+import 'package:flutter_extension/views/screen/home/home_tab.dart';
 import 'package:flutter_extension/views/screen/home/job_details.dart';
+import 'package:flutter_extension/views/screen/home/job_tab.dart';
+import 'package:flutter_extension/views/screen/home/message_screen.dart';
 import 'package:flutter_extension/views/screen/home/notification_screen.dart';
+import 'package:flutter_extension/views/screen/home/profile/about_us.dart';
+import 'package:flutter_extension/views/screen/home/profile/change_pass.dart';
+
+import 'package:flutter_extension/views/screen/home/profile/score_summery.dart';
+import 'package:flutter_extension/views/screen/home/profile/support.dart';
+import 'package:flutter_extension/views/screen/home/profile/terms_policies.dart';
+import 'package:flutter_extension/views/screen/home/profile/view_profile.dart';
+import 'package:flutter_extension/views/screen/home/withdraw_screen.dart';
 import 'package:flutter_extension/views/screen/job_seeker/profile/background_check.dart';
 import 'package:flutter_extension/views/screen/job_seeker/profile/upload_documents.dart';
 import 'package:flutter_extension/views/screen/job_seeker/profile/add_education_screen.dart';
@@ -49,6 +61,21 @@ class AppRoutes{
   static String profileSummeryScreen = "/profile_summery";
   static String notificationScreen = "/notification_screen";
    static String jobDetails = "/job_details";
+   static String jobTab = "/job_tab";
+   static String withdrawScreen = "/withdraw_screen";
+   static String viewProfile = "/view_profile";
+   static String termsPolicies = "/terms_policies";
+   static String support = "/support";
+   static String scoreSummery = "/score_summery";
+   static String changePass = "/change_pass";
+   static String aboutUs = "/about_us";
+   static String homeTab = "/home_tab";
+   static String messageScreen = "/message_screen";
+   static String chatScreen = "/chat_screen";
+   
+  
+
+
 
 
   static String getOtpScreen() => otpScreen;
@@ -113,6 +140,19 @@ class AppRoutes{
       GetPage(name: homeScreen, page: () =>  HomeScreen()),
       GetPage(name: notificationScreen, page: () =>  NotificationScreen()),
        GetPage(name: jobDetails, page: () =>  JobDetails()),
+       GetPage(name: jobTab, page: () =>  JobsTab()),
+       GetPage(name: withdrawScreen, page: () =>  WithdrawScreen()),
+       GetPage(name: viewProfile, page: () =>  ViewProfile()),
+       GetPage(name: termsPolicies, page: () =>  TermsPolicies()),
+       GetPage(name: support, page: () =>  Support()),
+       GetPage(name: scoreSummery, page: () =>  ScoreSummery()),
+       GetPage(name: changePass, page: () =>  ChangePass()),
+       GetPage(name: aboutUs, page: () =>  AboutUs()),
+       GetPage(name: homeTab, page: () =>  HomeTab()),
+       GetPage(name: messageScreen, page: () =>  MessageScreen()),
+       GetPage(name: chatScreen, page: () =>  ChatScreen()),
+     
+
   
 
   ];

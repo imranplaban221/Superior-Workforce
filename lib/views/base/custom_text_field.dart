@@ -40,7 +40,7 @@ class CustomTextField extends StatefulWidget {
       this.isEmail,
       this.controller,
       this.keyboardType = TextInputType.text,
-      this.obscure = '*',
+      this.obscure = '•',
       this.filColor,
       this.labelText,
       this.isPassword = false,
