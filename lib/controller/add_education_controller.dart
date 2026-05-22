@@ -10,7 +10,7 @@ class AddEducationController extends GetxController {
   final TextEditingController yearController = TextEditingController();
   final TextEditingController licenseController = TextEditingController();
 
-  /// `true` = Completed, `false` = Ongoing
+  
   final RxBool isCompleted = true.obs;
 
   final RxnString certificateFileName = RxnString();

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_extension/helper/route_helper.dart';
 import 'package:flutter_extension/views/base/custom_onbording_design.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:get/get.dart';
 
 class OnboardingController extends GetxController {
@@ -59,14 +60,28 @@ class OnboardingController extends GetxController {
     }
   }
 
-  void goNext() {
-    if (isLastPage) {
-      Get.offNamed(AppRoutes.roleScreen);
-    } else {
-      pageController.nextPage(
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
-      );
-    }
+ Future<void> goNext() async {
+
+  if (isLastPage) {
+
+    final SharedPreferences prefs =
+        await SharedPreferences.getInstance();
+
+    await prefs.setBool(
+      'onboarding_seen',
+      true,
+    );
+
+    Get.offNamed(AppRoutes.roleScreen);
+
+  } else {
+
+    pageController.nextPage(
+      duration: const Duration(
+        milliseconds: 300,
+      ),
+      curve: Curves.easeInOut,
+    );
   }
+}
 }

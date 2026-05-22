@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_extension/util/app_colors.dart';
 import 'package:flutter_extension/util/app_text.dart';
@@ -35,7 +37,7 @@ class _ViewProfileState extends State<ViewProfile> {
                   children: [
                     GestureDetector(
                         onTap: () => Get.back(),
-                        child: Icon(Icons.arrow_back,
+                        child: const Icon(Icons.arrow_back,
                           size: 32,
                         ),
                       ),
@@ -386,7 +388,7 @@ class _ViewProfileState extends State<ViewProfile> {
            Container(
   width: 24.w,
   height: 24.w,
-  padding: EdgeInsets.only(left: 4, right: 7),
+  padding: const EdgeInsets.only(left: 4, right: 7),
   decoration: BoxDecoration(
     color:  Colors.white, 
     borderRadius: BorderRadius.circular(8.r),
@@ -624,7 +626,7 @@ Column(
           Container(
             width: 24.w,
             height: 24.w,
-            padding: EdgeInsets.only(left: 4,right: 7,),
+            padding: const EdgeInsets.only(left: 4,right: 7,),
             decoration: BoxDecoration(
               color:  Colors.white,
               borderRadius: BorderRadius.circular(8.r),

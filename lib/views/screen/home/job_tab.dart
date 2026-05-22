@@ -144,13 +144,13 @@ class _JobsTabState extends State<JobsTab> {
                 ),
 
 
-                 OngoingJobCard(),
+                 const OngoingJobCard(),
 
 
-                 UpcomingJobCard(),
+                 const UpcomingJobCard(),
 
 
-                 CompletedJobCard(),
+                 const CompletedJobCard(),
 
       
               ],

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_extension/controller/auth_controller.dart';
+import 'package:flutter_extension/data/api/auth_services.dart';
 import 'package:flutter_extension/helper/route_helper.dart';
+import 'package:flutter_extension/controller/role_controller.dart';
 import 'package:flutter_extension/util/otp_source.dart';
 import 'package:get/get.dart';
 
@@ -57,8 +59,8 @@ class OtpController extends GetxController {
     final String domainName =
         dot > 0 ? domainFull.substring(0, dot) : domainFull;
     final String tld = dot > 0 ? domainFull.substring(dot) : '';
-    final String prefix = domainName.length > 4
-        ? domainName.substring(0, 4)
+    final String prefix = domainName.length > 2
+        ? domainName.substring(0, 2)
         : domainName;
     return '$local@$prefix***$tld';
   }
@@ -91,23 +93,130 @@ class OtpController extends GetxController {
   bool get isOtpComplete => auth.otpDigitControllers
       .every((TextEditingController c) => c.text.trim().isNotEmpty);
 
-  void verifyAndContinue() {
-    if (!isOtpComplete) {
-      return;
-    }
-    auth.clearOtpFields();
-    if (source == OtpSource.signUp) {
-      Get.toNamed(AppRoutes.completeSignUpScreen);
-      return;
-    }
-    if (source == OtpSource.forgotPassword) {
-      Get.toNamed(AppRoutes.confirmationScreen);
-      return;
-    }
-     if (source == OtpSource.login) {
-    Get.offAllNamed(AppRoutes.homeScreen); 
+  Future<void> verifyAndContinue() async {
+
+  if (!isOtpComplete) {
     return;
   }
-    Get.toNamed(AppRoutes.newPasswordScreen);
+
+  try {
+
+    auth.isVerifyingOtp.value = true;
+
+    final response =
+        await AuthService.verifyOtp(
+      email: email ?? '',
+      otp: auth.otpCode,
+    );
+
+    if (response['success'] != true) {
+
+      Get.snackbar(
+        'Error',
+        response['message'] ??
+            'Invalid OTP',
+      );
+
+      return;
+    }
+
+    auth.clearOtpFields();
+
+    bool isEmployer = false;
+
+    if (Get.isRegistered<RoleController>()) {
+      isEmployer =
+      
+          Get.find<RoleController>()
+                  .selectedRole
+                  .value ==
+              1;
+    }
+
+    if (source == OtpSource.signUp) {
+
+      if (isEmployer) {
+        Get.toNamed(
+          AppRoutes.employerProfile,
+        );
+      } else {
+        Get.toNamed(
+          AppRoutes.completeSignUpScreen,
+        );
+      }
+
+      return;
+    }
+
+    if (source ==
+        OtpSource.forgotPassword) {
+
+      Get.toNamed(
+        AppRoutes.confirmationScreen,
+      );
+
+      return;
+    }
+
+    if (source == OtpSource.login) {
+
+      if (isEmployer) {
+        Get.offAllNamed(
+          AppRoutes.employerHome,
+        );
+      } else {
+        Get.offAllNamed(
+          AppRoutes.homeScreen,
+        );
+      }
+
+      return;
+    }
+
+  } catch (e) {
+
+    Get.snackbar(
+      'Error',
+      e.toString(),
+    );
+
+  } finally {
+
+    auth.isVerifyingOtp.value = false;
   }
+}
+
+
+
+
+
+Future<void> resendOtp() async {
+
+  try {
+
+    auth.isSendingOtp.value = true;
+
+    final response =
+        await AuthService.resendOtp(
+      email: email ?? '',
+    );
+
+    Get.snackbar(
+      'Success',
+      response['message'] ??
+          'OTP sent again',
+    );
+
+  } catch (e) {
+
+    Get.snackbar(
+      'Error',
+      e.toString(),
+    );
+
+  } finally {
+
+    auth.isSendingOtp.value = false;
+  }
+}
 }

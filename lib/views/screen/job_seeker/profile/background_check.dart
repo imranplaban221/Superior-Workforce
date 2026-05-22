@@ -74,7 +74,7 @@ class _BackgroundCheckScreenState extends State<BackgroundCheckScreen> {
 
                     SizedBox(height: 10.h),
 
-                   ProfileProgressBar(step: 5),
+                   const ProfileProgressBar(step: 5),
 
                     SizedBox(height: 16.h),
 

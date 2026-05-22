@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_extension/controller/auth_controller.dart';
 import 'package:flutter_extension/helper/route_helper.dart';
 import 'package:flutter_extension/util/app_text.dart';
-import 'package:flutter_extension/util/otp_source.dart';
+
 import 'package:flutter_extension/views/base/custom_button.dart';
-// import 'package:flutter_extension/views/base/custom_image_picker.dart';
+
 import 'package:flutter_extension/views/base/custom_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -39,24 +39,7 @@ class SignUpScreen extends GetView<AuthController> {
     Get.offAllNamed(AppRoutes.loginScreen);
   }
 
-  void _onSignUpTap(AuthController auth) {
-    auth.signUpSubmitted.value = true;
-    if (auth.signUpFormKey.currentState?.validate() ?? false) {
-      final String email = auth.signUpEmail;
-      auth.pendingOtpEmail.value = email;
-      auth.clearSignUpForm();
-      auth.signUpSubmitted.value = false;
-      auth.signUpFormKey.currentState?.reset();
-      Get.toNamed(
-        AppRoutes.getOtpScreen(),
-        arguments: <String, dynamic>{
-          'email': email,
-          'source': OtpSource.signUp,
-        },
-      );
-    }
-  }
-
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -141,6 +124,40 @@ class SignUpScreen extends GetView<AuthController> {
                           return Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
+
+                             Text(
+  'Full Name',
+  style: AppFonts.custom(
+    size: 14,
+    weight: FontWeight.w500,
+    color: Colors.black,
+  ),
+),
+
+SizedBox(height: 8.h),
+
+CustomTextField(
+  controller: controller.signUpFullNameController,
+  hintText: 'Enter your full name',
+  filColor: Colors.white,
+  contentPaddingHorizontal: 12.w,
+  contentPaddingVertical: 12.h,
+  prefixIcon: Icon(
+    Icons.person_outline,
+    color: const Color(0xFF9CA3AF),
+    size: 18.w,
+  ),
+),
+
+
+
+                              SizedBox(height: 12.h),           
+
+
+
+
+
+
                               Text(
                                 'Email',
                                 style: AppFonts.custom(
@@ -328,11 +345,21 @@ class SignUpScreen extends GetView<AuthController> {
                     ),
                   ),
                   SizedBox(height: 20.h),
-                  CustomButton(
-                    text: 'Sign Up',
-                    height: 48.h,
-                    onTap: () => _onSignUpTap(controller),
-                  ),
+                 Obx(
+  () => CustomButton(
+    text: controller.isSigningUp.value
+        ? 'Loading...'
+        : 'Sign Up',
+
+    height: 48.h,
+
+   onTap: () {
+  if (!controller.isSigningUp.value) {
+    controller.signUp();
+  }
+},
+  ),
+),
                   SizedBox(height: 16.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,

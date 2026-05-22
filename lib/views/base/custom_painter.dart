@@ -16,29 +16,29 @@ class CurvePainter extends CustomPainter {
  
     final path = Path();
  
-    // Start from bottom-left
+    
  
     path.moveTo(0, size.height);
  
-    // Draw cubic curve to bottom-right
+    
  
     path.cubicTo(
  
-      size.width * (0.5),  // control point 1 x
+      size.width * (0.5),  
  
-      size.height * (0.8), // control point 1 y
+      size.height * (0.8), 
  
-      size.width * (272.896 / 430),  // control point 2 x
+      size.width * (272.896 / 430),  
  
-      size.height * (440.549 / 503), // control point 2 y
+      size.height * (440.549 / 503), 
  
-      size.width,                    // end x
+      size.width,                    
  
-      size.height,                   // end y
+      size.height,                   
  
     );
  
-    // Close the shape upwards if needed
+    
  
     path.lineTo(size.width, 0);
  

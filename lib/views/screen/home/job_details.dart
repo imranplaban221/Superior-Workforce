@@ -1,6 +1,7 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
-import 'package:flutter_extension/helper/route_helper.dart';
-import 'package:flutter_extension/util/app_colors.dart';
+
 import 'package:flutter_extension/views/base/custom_review_card.dart';
 import 'package:flutter_extension/util/app_text.dart';
 import 'package:flutter_extension/views/screen/home/home_screen.dart';
@@ -27,7 +28,7 @@ class JobDetails extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
+              const Text(
                 "Are you sure cancel\nthis job?",
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -80,6 +81,8 @@ class JobDetails extends StatelessWidget {
 
                   Expanded(
                     child: Container(
+                      height: 40,
+                      width: 161,
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
@@ -358,12 +361,12 @@ class JobDetails extends StatelessWidget {
                                       padding: EdgeInsets.all(10.w),
                                       decoration: BoxDecoration(
                                         
-                                        color: Color(0xFFE6EDF3),
+                                        color: const Color(0xFFE6EDF3),
                                         borderRadius: BorderRadius.circular(12.r),
                                       ),
                                       child: SvgPicture.asset(
                                         'assets/images/file.svg',
-                                        color: Color(0xFF3A6C9E),
+                                        color: const Color(0xFF3A6C9E),
                                       ),
                                     ),
                                   ),
@@ -438,7 +441,7 @@ Container(
           const SizedBox(width: 12),
       
           
-          Expanded(
+          const Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -511,7 +514,7 @@ Container(
       Container(
         padding: const EdgeInsets.all(12),
         decoration:  BoxDecoration(
-          color: Color(0xFFFFEDD5),
+          color: const Color(0xFFFFEDD5),
           shape: BoxShape.rectangle,
           borderRadius: BorderRadius.circular(14),
         ),
@@ -555,7 +558,7 @@ Container(
             child: Container(
               padding: const EdgeInsets.all(8),
               decoration:  BoxDecoration(
-                color: Color(0xFFE5F1FF),
+                color: const Color(0xFFE5F1FF),
                 shape: BoxShape.rectangle,
                 borderRadius: BorderRadius.circular(8),
               ),
@@ -563,7 +566,7 @@ Container(
                 'assets/images/phone.svg',
                 height: 18,
                 width: 18,
-                color: Color(0xFF0074BE),
+                color: const Color(0xFF0074BE),
               ),
             ),
           ),
@@ -593,7 +596,7 @@ Container(
             child: Container(
               padding: const EdgeInsets.all(8),
               decoration:  BoxDecoration(
-                color: Color(0xFFE5F1FF),
+                color: const Color(0xFFE5F1FF),
                 shape: BoxShape.rectangle,
                 borderRadius: BorderRadius.circular(8),
               ),
@@ -623,9 +626,9 @@ Row(
     Expanded(
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
-          fixedSize: Size(95, 48) ,
-          padding:  EdgeInsets.symmetric(vertical: 12),
-          side:  BorderSide(
+          fixedSize: const Size(95, 48) ,
+          padding:  const EdgeInsets.symmetric(vertical: 12),
+          side:  const BorderSide(
             color: Color(0xFF0074BE),
             width: 1,
           ),
@@ -652,9 +655,9 @@ Row(
     Expanded(
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
-          fixedSize: Size(162, 48) ,
-          padding:  EdgeInsets.symmetric(vertical: 12),
-          side:  BorderSide(
+          fixedSize: const Size(162, 48) ,
+          padding:  const EdgeInsets.symmetric(vertical: 12),
+          side:  const BorderSide(
             color: Color(0xFF0074BE),
             width: 1,
           ),
@@ -665,7 +668,7 @@ Row(
         onPressed: () {
           
         },
-        child:  Text(
+        child:  const Text(
           "Message Now",
           style: TextStyle(
             color: Color(0xFF0074BE),

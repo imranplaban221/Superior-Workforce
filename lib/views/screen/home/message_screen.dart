@@ -197,7 +197,7 @@ class _MessageScreenState extends State<MessageScreen> {
                     Get.toNamed(AppRoutes.chatScreen);
                     
                   },
-                  child: MessageCard(
+                  child: const MessageCard(
                     imagePath: 'assets/images/spider_man.jpg',
                     senderName: 'City Hospital',
                     message: "We'd like to schedule an interview for the RN position",
@@ -212,7 +212,7 @@ class _MessageScreenState extends State<MessageScreen> {
                   onTap: () {
                     Get.toNamed(AppRoutes.chatScreen);
                   },
-                  child: MessageCard(
+                  child: const MessageCard(
                     imagePath: 'assets/images/spider_man.jpg',
                     senderName: 'General Clinic',
                     message: 'Your application has been reviewed successfully',
@@ -227,7 +227,7 @@ class _MessageScreenState extends State<MessageScreen> {
                   onTap: () {
                     Get.toNamed(AppRoutes.chatScreen);
                   },
-                  child: MessageCard(
+                  child: const MessageCard(
                     imagePath: 'assets/images/spider_man.jpg',
                     senderName: 'Metro Health',
                     message: 'Please confirm your availability for next Monday',

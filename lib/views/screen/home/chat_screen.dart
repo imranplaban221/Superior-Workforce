@@ -131,10 +131,10 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget _buildAppBar() {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white,
         border: Border(
-          bottom: BorderSide(color: const Color(0xFFE7E8EA), width: 0.5),
+          bottom: BorderSide(color: Color(0xFFE7E8EA), width: 0.5),
         ),
       ),
       child: Row(
@@ -154,8 +154,8 @@ class _ChatScreenState extends State<ChatScreen> {
                 width: 40.w,
                 height: 40.w,
                  padding: EdgeInsets.all(1.w),
-                decoration: BoxDecoration(
-                  color: const Color(0xFFF3F4F6),
+                decoration: const BoxDecoration(
+                  color: Color(0xFFF3F4F6),
                   shape: BoxShape.circle,
                 ),
                 child: ClipRRect(
@@ -258,10 +258,10 @@ class _ChatScreenState extends State<ChatScreen> {
                           ? Radius.circular(4.r)
                           : Radius.circular(16.r),
                     ),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
-                        color: const Color(0x0A000000),
-                        offset: const Offset(0, 2),
+                        color: Color(0x0A000000),
+                        offset: Offset(0, 2),
                         blurRadius: 4,
                       ),
                     ],
@@ -326,10 +326,10 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget _buildInputBar() {
   return Container(
     padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
-    decoration: BoxDecoration(
+    decoration: const BoxDecoration(
       color: Colors.white,
       border: Border(
-        top: BorderSide(color: const Color(0xFFE7E8EA), width: 0.5),
+        top: BorderSide(color: Color(0xFFE7E8EA), width: 0.5),
       ),
     ),
     child: Row(
@@ -342,7 +342,7 @@ class _ChatScreenState extends State<ChatScreen> {
             width: 44.w,
             height: 44.w,
             decoration: BoxDecoration(
-              color: Color(0xFFF3F4F6),
+              color: const Color(0xFFF3F4F6),
               shape: BoxShape.circle,
               border: Border.all(
                 color: const Color(0xFFE7E8EA),

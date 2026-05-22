@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_extension/helper/route_helper.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -429,10 +431,10 @@ class _ProfileTabState extends State<ProfileTab> {
   Widget _divider() {
   return Padding(
     padding: EdgeInsets.symmetric(horizontal: 16.w),
-    child: Divider(
+    child: const Divider(
       height: 1,
       thickness: 1,
-      color: const Color(0xFFE7E8EA),
+      color: Color(0xFFE7E8EA),
     ),
   );
 }
@@ -512,7 +514,7 @@ void showLogoutDialog(BuildContext context) {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
+              const Text(
                 "Are sure want to log \nout?",
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -610,7 +612,7 @@ void showDeleteDialog(BuildContext context) {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
+              const Text(
                 "Are sure want to \ndelete account",
                 textAlign: TextAlign.center,
                 style: TextStyle(

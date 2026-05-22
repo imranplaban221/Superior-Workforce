@@ -223,7 +223,7 @@ class OtpScreen extends GetView<OtpController> {
                                     ),
                                   ),
                                   GestureDetector(
-                                    onTap: () {},
+                                    onTap: controller.resendOtp,
                                     child: Text(
                                       'Resend Code',
                                       style: AppFonts.custom(
@@ -247,13 +247,17 @@ class OtpScreen extends GetView<OtpController> {
               const Spacer(),
               Obx(() {
                 controller.uiTick.value;
-                final bool complete = controller.isOtpComplete;
+               final bool complete =
+    controller.isOtpComplete &&
+    !controller.auth.isVerifyingOtp.value;
                 return Opacity(
                   opacity: complete ? 1.0 : 0.45,
                   child: IgnorePointer(
                     ignoring: !complete,
                     child: CustomButton(
-                      text: 'Verify Code',
+                      text: controller.auth.isVerifyingOtp.value
+    ? 'Verifying...'
+    : 'Verify Code',
                       height: 48.h,
                       onTap: controller.verifyAndContinue,
                     ),

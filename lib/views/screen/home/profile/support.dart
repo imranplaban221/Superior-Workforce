@@ -49,7 +49,7 @@ class _SupportState extends State<Support> {
                   children: [
                     GestureDetector(
                       onTap: () => Get.back(),
-                      child: Icon(Icons.arrow_back,
+                      child: const Icon(Icons.arrow_back,
                         size: 32,
                       ),
                     ),
@@ -303,7 +303,7 @@ class _SupportState extends State<Support> {
       width: 32.w,
       height: 32.w,
       decoration: BoxDecoration(
-        color: Color(0xFFE7E8EA),
+        color: const Color(0xFFE7E8EA),
 
         shape: BoxShape.rectangle,
         borderRadius: BorderRadius.circular(12.8),

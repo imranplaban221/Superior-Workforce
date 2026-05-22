@@ -97,7 +97,7 @@ class CustomLoginSignUpButtons extends StatelessWidget {
       child: Container(
         width: 390.w,
         height: 80.h,
-        padding: EdgeInsets.all(20.w),
+        padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 16),
         decoration: BoxDecoration(
           color: const Color(0xFFF7F9FC),
           borderRadius: BorderRadius.circular(4.r),

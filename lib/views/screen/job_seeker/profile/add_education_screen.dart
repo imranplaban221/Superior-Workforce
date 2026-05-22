@@ -63,7 +63,7 @@ class _AddEducationScreenState extends State<AddEducationScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
 
-                      /// 🔹 HEADER
+                      
                       Row(
                         children: <Widget>[
                           IconButton(
@@ -92,11 +92,11 @@ class _AddEducationScreenState extends State<AddEducationScreen> {
                       SizedBox(height: 14.h),
 
                      
-                      ProfileProgressBar(step: 3),
+                      const ProfileProgressBar(step: 3),
 
                       SizedBox(height: 18.h),
 
-                      /// 🔹 FORM CARD
+                      
                       Container(
                         width: double.infinity,
                         padding: EdgeInsets.symmetric(

@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_extension/helper/route_helper.dart';
 import 'package:flutter_extension/util/app_colors.dart';
@@ -105,6 +107,7 @@ class JobCard extends StatelessWidget {
     children: [
       SvgPicture.asset(
         'assets/images/star.svg',
+        
         color: const Color(0xFFF59E0B), 
         width: 14,
       ),
@@ -161,8 +164,8 @@ class JobCard extends StatelessWidget {
 
          SizedBox(height: 10.h),
 
-Divider(
-  color: const Color(0xFFE5E7EB), 
+const Divider(
+  color: Color(0xFFE5E7EB), 
   thickness: 1,
 ),
 
@@ -197,7 +200,7 @@ SizedBox(height: 10.h),
       ),
     ),
 
-    SizedBox(width: 12),
+    const SizedBox(width: 12),
 
   
     Expanded(
@@ -226,7 +229,7 @@ SizedBox(height: 10.h),
       ),
     ),
 
-    SizedBox(width: 12),
+    const SizedBox(width: 12),
 
     
     SizedBox(
@@ -381,8 +384,8 @@ class BookedJobCard extends StatelessWidget {
     
     Container(
       padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
-      decoration: BoxDecoration(
-        color: const Color(0xFFE6F4EA),
+      decoration: const BoxDecoration(
+        color: Color(0xFFE6F4EA),
         borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8),topLeft: Radius.circular(8)),
       ),
       child: Text(
@@ -433,10 +436,10 @@ class BookedJobCard extends StatelessWidget {
 
           SizedBox(height: 10.h),
 
-          Padding(
-            padding: const EdgeInsets.only(left: 12, right: 12, ),
+          const Padding(
+            padding: EdgeInsets.only(left: 12, right: 12, ),
             child: Divider(
-              color: const Color(0xFFE5E7EB), 
+              color: Color(0xFFE5E7EB), 
               thickness: 1,
             ),
           ),
@@ -473,13 +476,13 @@ class BookedJobCard extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(10),
                   decoration:  BoxDecoration(
-                    color: Color(0xFFE5F1FF),
+                    color: const Color(0xFFE5F1FF),
                     shape: BoxShape.rectangle,
                     borderRadius: BorderRadius.circular(13),
                   ),
                   child: SvgPicture.asset(
                     'assets/images/message.svg',
-                    color: Color(0xFF0074BE),
+                    color: const Color(0xFF0074BE),
                     width: 20,
                     height: 20,
                   ),
@@ -493,13 +496,13 @@ class BookedJobCard extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(10),
                   decoration:  BoxDecoration(
-                    color: Color(0xFFE5F1FF),
+                    color: const Color(0xFFE5F1FF),
                     shape: BoxShape.rectangle,
                     borderRadius: BorderRadius.circular(13),
                   ),
                   child: SvgPicture.asset(
                     'assets/images/send.svg',
-                    color: Color(0xFF0074BE),
+                    color: const Color(0xFF0074BE),
                     width: 20,
                     height: 20,
                   ),
@@ -719,10 +722,10 @@ class OngoingJobCard extends StatelessWidget {
 
           SizedBox(height: 10.h),
 
-          Padding(
-            padding: const EdgeInsets.only(left: 12, right: 12, ),
+          const Padding(
+            padding: EdgeInsets.only(left: 12, right: 12, ),
             child: Divider(
-              color: const Color(0xFFE5E7EB), 
+              color: Color(0xFFE5E7EB), 
               thickness: 1,
             ),
           ),
@@ -759,13 +762,13 @@ class OngoingJobCard extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(10),
                   decoration:  BoxDecoration(
-                    color: Color(0xFFE5F1FF),
+                    color: const Color(0xFFE5F1FF),
                     shape: BoxShape.rectangle,
                     borderRadius: BorderRadius.circular(13),
                   ),
                   child: SvgPicture.asset(
                     'assets/images/message.svg',
-                    color: Color(0xFF0074BE),
+                    color: const Color(0xFF0074BE),
                     width: 20,
                     height: 20,
                   ),
@@ -779,13 +782,13 @@ class OngoingJobCard extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(10),
                   decoration:  BoxDecoration(
-                    color: Color(0xFFE5F1FF),
+                    color: const Color(0xFFE5F1FF),
                     shape: BoxShape.rectangle,
                     borderRadius: BorderRadius.circular(13),
                   ),
                   child: SvgPicture.asset(
                     'assets/images/send.svg',
-                    color: Color(0xFF0074BE),
+                    color: const Color(0xFF0074BE),
                     width: 20,
                     height: 20,
                   ),
@@ -994,10 +997,10 @@ class UpcomingJobCard extends StatelessWidget {
 
           SizedBox(height: 10.h),
 
-          Padding(
-            padding: const EdgeInsets.only(left: 12, right: 12, ),
+          const Padding(
+            padding: EdgeInsets.only(left: 12, right: 12, ),
             child: Divider(
-              color: const Color(0xFFE5E7EB), 
+              color: Color(0xFFE5E7EB), 
               thickness: 1,
             ),
           ),
@@ -1034,13 +1037,13 @@ class UpcomingJobCard extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(10),
                   decoration:  BoxDecoration(
-                    color: Color(0xFFE5F1FF),
+                    color: const Color(0xFFE5F1FF),
                     shape: BoxShape.rectangle,
                     borderRadius: BorderRadius.circular(13),
                   ),
                   child: SvgPicture.asset(
                     'assets/images/message.svg',
-                    color: Color(0xFF0074BE),
+                    color: const Color(0xFF0074BE),
                     width: 20,
                     height: 20,
                   ),
@@ -1054,13 +1057,13 @@ class UpcomingJobCard extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(10),
                   decoration:  BoxDecoration(
-                    color: Color(0xFFE5F1FF),
+                    color: const Color(0xFFE5F1FF),
                     shape: BoxShape.rectangle,
                     borderRadius: BorderRadius.circular(13),
                   ),
                   child: SvgPicture.asset(
                     'assets/images/send.svg',
-                    color: Color(0xFF0074BE),
+                    color: const Color(0xFF0074BE),
                     width: 20,
                     height: 20,
                   ),
@@ -1261,10 +1264,10 @@ class CompletedJobCard extends StatelessWidget {
           SizedBox(height: 10.h),
 
           
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 12),
             child: Divider(
-              color: const Color(0xFFE5E7EB),
+              color: Color(0xFFE5E7EB),
               thickness: 1,
             ),
           ),

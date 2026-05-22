@@ -1,7 +1,10 @@
+// ignore_for_file: non_constant_identifier_names, constant_identifier_names
+
 import '../data/model/language_model.dart';
 
 class AppConstants{
 
+  
   static const String APP_NAME = 'APP Names Here';
   static const double APP_VERSION = 1.0;
 

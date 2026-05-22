@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_extension/util/app_colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-/// Circular tappable control: shows [imageBytes] preview or a camera placeholder.
+
 class CustomImagePicker extends StatelessWidget {
   const CustomImagePicker({
     super.key,

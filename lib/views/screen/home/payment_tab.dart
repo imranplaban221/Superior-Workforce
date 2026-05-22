@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_extension/util/app_colors.dart';
 import 'package:flutter_extension/util/app_text.dart';
@@ -58,21 +60,21 @@ class _PaymentTabState extends State<PaymentTab> {
 
     _earningBox(
       imagePath: 'assets/images/doller.svg',
-      imageColor: Color(0xFF22C55E),
+      imageColor: const Color(0xFF22C55E),
       amount: "\$4112",
       title: "Total Earned",
     ),
 
     _earningBox(
       imagePath: 'assets/images/arrow.svg',
-      imageColor: Color(0xFF3B82F6),
+      imageColor: const Color(0xFF3B82F6),
       amount: "\$123",
       title: "This Month",
     ),
 
     _earningBox(
       imagePath: 'assets/images/clock.svg',
-      imageColor: Color(0xFFF97316),
+      imageColor: const Color(0xFFF97316),
       amount: "\$348",
       title: "Pending",
     ),
@@ -82,7 +84,7 @@ class _PaymentTabState extends State<PaymentTab> {
 
 SizedBox(height: 20.h,),
 
-WalletCard(),
+const WalletCard(),
 
 SizedBox(height: 20.h,),
 
@@ -98,7 +100,7 @@ style: AppFonts.custom(
                   SizedBox(height: 20.h,),
 
 
-                  PaymentDropdownCard(),
+                  const PaymentDropdownCard(),
 
 
 

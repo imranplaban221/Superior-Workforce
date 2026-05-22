@@ -4,6 +4,7 @@ import 'package:flutter_extension/util/app_constants.dart';
 import 'package:flutter_extension/util/message.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:flutter_extension/controller/auth_controller.dart';
 
 import 'controller/localization_controller.dart';
 import 'helper/get_di.dart' as di;
@@ -12,6 +13,11 @@ import 'helper/route_helper.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final Map<String, Map<String, String>> languages = await di.init();
+  Get.put(
+  AuthController(),
+  permanent: true,
+);
+  
   runApp(MyApp(languages: languages));
 }
 
@@ -24,7 +30,7 @@ class MyApp extends StatelessWidget {
     return GetBuilder<LocalizationController>(
       builder: (localizeController) {
         return ScreenUtilInit(
-          designSize: const Size(393, 852),
+          designSize: const Size(430, 932),
           minTextAdapt: true,
           splitScreenMode: true,
           builder: (_, child) {

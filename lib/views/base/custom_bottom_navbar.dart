@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_extension/controller/nav_controller.dart';
 import 'package:flutter_extension/util/app_colors.dart';
@@ -72,7 +74,7 @@ class CustomBottomNav extends StatelessWidget {
                   items[index]['label'],
                   style: TextStyle(
                     fontSize: 12,
-                    fontWeight: FontWeight(400),
+                    fontWeight: const FontWeight(400),
                     color: isSelected
                         ? const Color(0xFF0E1B2A)
                         : const Color(0xFF9CA3AF),

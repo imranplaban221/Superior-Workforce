@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_extension/util/app_colors.dart';
 import 'package:flutter_extension/util/app_text.dart';
@@ -51,13 +53,13 @@ class _ReviewCardState extends State<ReviewCard> {
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: Color(0xFFE5F1FF),
+                  color: const Color(0xFFE5F1FF),
                   shape: BoxShape.rectangle,
                   borderRadius: BorderRadius.circular(14),
                 ),
                 child: SvgPicture.asset(
                     'assets/images/review.svg',
-                    color: Color(0xFF0074BE)),
+                    color: const Color(0xFF0074BE)),
               ),
               SizedBox(width: 10.w),
               Text("Review",
@@ -75,7 +77,7 @@ class _ReviewCardState extends State<ReviewCard> {
                   children: [
                     SvgPicture.asset(
                       'assets/images/star.svg',
-                      color: Color(0xFFF59E0B),
+                      color: const Color(0xFFF59E0B),
                       height: 14,
                       width: 14,
                     ),
@@ -323,7 +325,7 @@ class _ReviewCardState extends State<ReviewCard> {
       ),
       child: Row(
         children: [
-          CircleAvatar(
+          const CircleAvatar(
             radius: 16,
             backgroundColor: Colors.transparent,
             backgroundImage:

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_extension/helper/route_helper.dart';
+
 import 'package:flutter_extension/util/app_colors.dart';
 import 'package:flutter_extension/util/app_text.dart';
 import 'package:flutter_extension/views/base/custom_button.dart';
@@ -299,14 +299,7 @@ int selectedIndex = 0;
 
 
 
- SizedBox(height: 240.h),
-                  CustomButton(
-                    text: 'WITHDRAW NOW',
-                    height: 48.h,
-                    onTap: () {},
-                  ),
-                  SizedBox(height: 16.h),
-
+ 
 
 
 
@@ -319,6 +312,21 @@ int selectedIndex = 0;
           ),
         ),
       ),
+      
+      bottomNavigationBar: Padding(
+  padding: EdgeInsets.only(
+    left: 16.w,
+    right: 16.w,
+    bottom: 40.h,
+  ),
+
+  child: CustomButton(
+    text: 'WITHDROW',
+    height: 48.h,
+    onTap: () {},
+  ),
+),
+ 
     );
   }
 

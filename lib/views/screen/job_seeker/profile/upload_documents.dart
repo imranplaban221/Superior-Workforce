@@ -47,7 +47,7 @@ class _UploadDocumentsScreenState extends State<UploadDocumentsScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    /// 🔹 HEADER
+                   
                     Row(
                       children: [
                         IconButton(
@@ -70,7 +70,7 @@ class _UploadDocumentsScreenState extends State<UploadDocumentsScreen> {
 
                     SizedBox(height: 16.h),
 
-                    /// Documents Uploaded Card
+                  
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
                       decoration: BoxDecoration(
@@ -147,7 +147,6 @@ class _UploadDocumentsScreenState extends State<UploadDocumentsScreen> {
 
                     SizedBox(height: 16.h),
 
-                    /// Accepted Formats
                     Container(
                       padding: EdgeInsets.all(12.w),
                       decoration: BoxDecoration(
@@ -169,7 +168,7 @@ class _UploadDocumentsScreenState extends State<UploadDocumentsScreen> {
 
                     SizedBox(height: 16.h),
 
-                    /// Documents List
+                    
                     CustomDocUpload(
                       title: "Gov't ID",
                       onUpload: (fileName, filePath) {
@@ -189,49 +188,49 @@ class _UploadDocumentsScreenState extends State<UploadDocumentsScreen> {
                       },
                     ),
                     CustomDocUpload(
-                      title: "PPD Test", // Guessing the full text for "st"
+                      title: "PPD Test", 
                       onUpload: (fileName, filePath) {
                         debugPrint("Uploaded: $fileName");
                       },
                     ),
 
                     CustomDocUpload(
-                      title: "Resume/CV", // Guessing the full text for "st"
+                      title: "Resume/CV", 
                       onUpload: (fileName, filePath) {
                         debugPrint("Uploaded: $fileName");
                       },
                     ),
 
                     CustomDocUpload(
-                      title: "Varicella Text Rocord", // Guessing the full text for "st"
+                      title: "Varicella Text Rocord", 
                       onUpload: (fileName, filePath) {
                         debugPrint("Uploaded: $fileName");
                       },
                     ),
 
                     CustomDocUpload(
-                      title: "MMR Vaccination Record", // Guessing the full text for "st"
+                      title: "MMR Vaccination Record", 
                       onUpload: (fileName, filePath) {
                         debugPrint("Uploaded: $fileName");
                       },
                     ),
 
                     CustomDocUpload(
-                      title: "HEP Vaccination ", // Guessing the full text for "st"
+                      title: "HEP Vaccination ", 
                       onUpload: (fileName, filePath) {
                         debugPrint("Uploaded: $fileName");
                       },
                     ),
 
                     CustomDocUpload(
-                      title: "Tdap Vaccination", // Guessing the full text for "st"
+                      title: "Tdap Vaccination", 
                       onUpload: (fileName, filePath) {
                         debugPrint("Uploaded: $fileName");
                       },
                     ),
 
                     CustomDocUpload(
-                      title: "Psychiatric and Mental Health Nursing - One", // Guessing the full text for "st"
+                      title: "Psychiatric and Mental Health Nursing - One", 
                       onUpload: (fileName, filePath) {
                         debugPrint("Uploaded: $fileName");
                       },

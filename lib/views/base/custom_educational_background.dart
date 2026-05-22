@@ -57,8 +57,8 @@ class CustomEducationalBackground extends StatelessWidget {
                             SizedBox(height: 14.h),
                             _addEducationButtonCard(),
                             if (controller.educationEntries.isNotEmpty) ...<Widget>[
-                              SizedBox(height: 380.h),
-                              _summaryActionButtons(),
+                              
+                             
                             ],
                           ],
                         );
@@ -71,6 +71,15 @@ class CustomEducationalBackground extends StatelessWidget {
           },
         ),
       ),
+      bottomNavigationBar: Padding(
+    padding: EdgeInsets.only(
+      left: 16.w,
+      right: 16.w,
+      bottom: 50.h,
+    ),
+
+    child: _summaryActionButtons(),
+  ),
     );
   }
 

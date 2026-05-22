@@ -12,6 +12,13 @@ import 'package:flutter_extension/views/screen/common/auth/log_in_screen.dart';
 import 'package:flutter_extension/views/screen/common/auth/new_password.dart';
 import 'package:flutter_extension/views/screen/common/auth/otp_screen.dart';
 import 'package:flutter_extension/views/screen/common/auth/sign_up_screen.dart';
+import 'package:flutter_extension/views/screen/employer/home/add_amount.dart';
+import 'package:flutter_extension/views/screen/employer/home/candidate_profile.dart';
+import 'package:flutter_extension/views/screen/employer/home/employer_home.dart';
+import 'package:flutter_extension/views/screen/employer/home/employer_job_details.dart';
+import 'package:flutter_extension/views/screen/employer/home/favorite_employees.dart';
+import 'package:flutter_extension/views/screen/employer/home/post_jobs.dart';
+import 'package:flutter_extension/views/screen/employer/profile.dart';
 import 'package:flutter_extension/views/screen/home/chat_screen.dart';
 import 'package:flutter_extension/views/screen/home/home_screen.dart';
 import 'package:flutter_extension/views/screen/home/home_tab.dart';
@@ -21,7 +28,7 @@ import 'package:flutter_extension/views/screen/home/message_screen.dart';
 import 'package:flutter_extension/views/screen/home/notification_screen.dart';
 import 'package:flutter_extension/views/screen/home/profile/about_us.dart';
 import 'package:flutter_extension/views/screen/home/profile/change_pass.dart';
-
+import 'package:flutter_extension/controller/auth_controller.dart';
 import 'package:flutter_extension/views/screen/home/profile/score_summery.dart';
 import 'package:flutter_extension/views/screen/home/profile/support.dart';
 import 'package:flutter_extension/views/screen/home/profile/terms_policies.dart';
@@ -72,6 +79,13 @@ class AppRoutes{
    static String homeTab = "/home_tab";
    static String messageScreen = "/message_screen";
    static String chatScreen = "/chat_screen";
+   static String employerProfile = "/employer_profile";
+   static String employerHome = "/employer_home";
+   static String favoriteEmployees = "/favorite_employees";
+    static String candidateProfile = "/candidate_profile";
+     static String postJobs = "/post_jobs";
+     static String employerJobDetails = "/employer_Job_Details";
+     static String addAmount = "/add_Amount";
    
   
 
@@ -90,7 +104,7 @@ class AppRoutes{
       }),
     ),
 
-     GetPage(name:homeScreen, page: ()=> HomeScreen()),
+     GetPage(name:homeScreen, page: ()=> const HomeScreen()),
      GetPage(
        name: roleScreen,
        page: () => const RoleScreen(),
@@ -98,7 +112,18 @@ class AppRoutes{
          Get.lazyPut(() => RoleController(), fenix: true);
        }),
      ),
-     GetPage(name:loginScreen, page: ()=>const LogInScreen()),
+     GetPage(
+  name: loginScreen,
+  page: () => const LogInScreen(),
+
+  binding: BindingsBuilder(() {
+
+    Get.lazyPut<AuthController>(
+      () => AuthController(),
+      fenix: true,
+    );
+  }),
+),
      GetPage(name:signUpScreen, page: ()=>const SignUpScreen()),
      GetPage(name:forgetPasswordScreen, page: ()=>const ForgetPasswordScreen()),
      GetPage(
@@ -129,7 +154,7 @@ class AppRoutes{
      GetPage(
        name: professionalDetailsScreen,
        page: () => const ProfessionalDetails(),
-       binding: BindingsBuilder(() {
+         binding: BindingsBuilder(() {
          Get.lazyPut(() => ProfessionalDetailsController());
        }),
      ),
@@ -137,20 +162,27 @@ class AppRoutes{
 
      GetPage(name: backgroundCheckScreen, page: () => const BackgroundCheckScreen()),
      GetPage(name: profileSummeryScreen, page: () => const ProfileSummery()),
-      GetPage(name: homeScreen, page: () =>  HomeScreen()),
-      GetPage(name: notificationScreen, page: () =>  NotificationScreen()),
-       GetPage(name: jobDetails, page: () =>  JobDetails()),
-       GetPage(name: jobTab, page: () =>  JobsTab()),
-       GetPage(name: withdrawScreen, page: () =>  WithdrawScreen()),
-       GetPage(name: viewProfile, page: () =>  ViewProfile()),
-       GetPage(name: termsPolicies, page: () =>  TermsPolicies()),
-       GetPage(name: support, page: () =>  Support()),
-       GetPage(name: scoreSummery, page: () =>  ScoreSummery()),
-       GetPage(name: changePass, page: () =>  ChangePass()),
-       GetPage(name: aboutUs, page: () =>  AboutUs()),
-       GetPage(name: homeTab, page: () =>  HomeTab()),
-       GetPage(name: messageScreen, page: () =>  MessageScreen()),
-       GetPage(name: chatScreen, page: () =>  ChatScreen()),
+      GetPage(name: homeScreen, page: () =>  const HomeScreen()),
+      GetPage(name: notificationScreen, page: () => const  NotificationScreen()),
+       GetPage(name: jobDetails, page: () => const JobDetails()),
+       GetPage(name: jobTab, page: () => const JobsTab()),
+       GetPage(name: withdrawScreen, page: () => const WithdrawScreen()),
+       GetPage(name: viewProfile, page: () => const ViewProfile()),
+       GetPage(name: termsPolicies, page: () => const TermsPolicies()),
+       GetPage(name: support, page: () => const Support()),
+       GetPage(name: scoreSummery, page: () => const ScoreSummery()),
+       GetPage(name: changePass, page: () => const ChangePass()),
+       GetPage(name: aboutUs, page: () => const AboutUs()),
+       GetPage(name: homeTab, page: () => const HomeTab()),
+       GetPage(name: messageScreen, page: () => const MessageScreen()),
+       GetPage(name: chatScreen, page: () => const  ChatScreen()),
+       GetPage(name: employerProfile, page: () => const EmployerProfile()),
+       GetPage(name: employerHome, page: () => const EmployerHome()),
+       GetPage(name: favoriteEmployees, page: () => const FavoriteEmployees()),
+       GetPage(name: candidateProfile, page: () => const CandidateProfile()),
+       GetPage(name: postJobs, page: () => const PostJobs()),
+       GetPage(name: employerJobDetails, page: () => const EmployerJobDetails()),
+       GetPage(name: addAmount, page: () => const AddAmount()),
      
 
   

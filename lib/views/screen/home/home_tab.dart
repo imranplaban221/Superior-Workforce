@@ -49,7 +49,7 @@ class _HomeTabState extends State<HomeTab> {
                         height: 1,
                       ),
                     ),
-                    SizedBox(width: 60.h),
+                    SizedBox(width: 110.h),
         
                       InkWell(
                         borderRadius: BorderRadius.circular(50),
@@ -64,7 +64,7 @@ class _HomeTabState extends State<HomeTab> {
                           children: [
                            Container(
                              padding: const EdgeInsets.all(8),
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Color(0xFFE7E8EA),
                                   shape: BoxShape.circle,
                                 
@@ -142,7 +142,7 @@ class _HomeTabState extends State<HomeTab> {
                          Container(
                         
                           padding: const EdgeInsets.all(8),
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Color(0xFFE7E8EA),
                                   shape: BoxShape.circle,
                         
@@ -167,14 +167,14 @@ class _HomeTabState extends State<HomeTab> {
                             
                                  boxShadow: [
                                 BoxShadow(
-                            color: const Color(0x1A000000), // #0000001A
-                            offset: const Offset(0, 1.2),
+                            color:  Color(0x1A000000), // #0000001A
+                            offset:  Offset(0, 1.2),
                             blurRadius: 2.4,
                             spreadRadius: -1.2,
                                 ),
                                 BoxShadow(
-                            color: const Color(0x1A000000),
-                            offset: const Offset(0, 2.4),
+                            color:  Color(0x1A000000),
+                            offset:  Offset(0, 2.4),
                             blurRadius: 3.6,
                             spreadRadius: -0.6,
                                 ),
@@ -220,7 +220,7 @@ class _HomeTabState extends State<HomeTab> {
         
                     SizedBox(height: 20.h),
         
-                    JobCard(
+                    const JobCard(
         title: "City Hospital",
         role: "CNA",
         time: "2h ago",
@@ -234,7 +234,7 @@ class _HomeTabState extends State<HomeTab> {
         
         
             
- Column(
+ const Column(
   children: [
     JobCard(
       title: "City Hospital",
@@ -254,7 +254,7 @@ class _HomeTabState extends State<HomeTab> {
         
         
             
-                    JobCard(
+                    const JobCard(
         title: "City Hospital",
         role: "CNA",
         time: "2h ago",
